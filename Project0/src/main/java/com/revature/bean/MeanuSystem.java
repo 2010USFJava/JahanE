@@ -54,7 +54,31 @@ public class MeanuSystem {
 				
 			case "e":
 				System.out.println("Welcome to employee page");
+				System.out.println("Admin Approved This Account");
+				viewCustomerInfo();
+				whichMenu();
+				break;
+				/*System.out.println("what Do want to do?"
+						+"\n [ap] approved"
+						+ "\n [de] denied");
+				menu = sc.nextLine();
 				
+				switch (menu.toLowerCase()) {
+				case "ap":
+					
+					System.out.println("Approved");
+					viewCustomerInfo();
+					whichMenu();
+					break;
+				case "de":
+					System.out.println("Denied");
+					whichMenu();
+					break;
+				}*/
+				
+			case "a":
+				System.out.println("Welcome to Admin panal"
+						+ "\n Want to view customer information :");
 				System.out.println("what Do want to do?"
 						+"\n [ap] approved"
 						+ "\n [de] denied");
@@ -73,12 +97,8 @@ public class MeanuSystem {
 					break;
 				}
 				
-			case "a":
-				System.out.println("Welcome to Admin page"
-						+ "\n If want to view customer information :");
-				
-				viewCustomerInfo();
-				break;
+				//viewCustomerInfo();
+				//break;
 				case "q":
 				System.out.println("Have a nice Day :-)--Thank you for chosing ABC bank");
 				break;
@@ -104,19 +124,15 @@ public class MeanuSystem {
 		   int cId=Integer.parseInt(sc.nextLine());
 		   System.out.println("Balance  !");
 		   double cBalance=Double.parseDouble(sc.nextLine());
-		   System.out.println("New customer accountNumber!");
-		   int cAccount=Integer.parseInt(sc.nextLine());
-		   CustomerAccount c = new CustomerAccount(custfiName,custlaName,custName,custPass,cBalance,cAccount);
-		   LogThis.LogIt("info" , c.getfName()+"customer Added");
-		   
-		   
+		   //System.out.println("New customer accountNumber!");
+		   //int cAccount=Integer.parseInt(sc.nextLine());
+		   CustomerAccount c = new CustomerAccount(custfiName,custlaName,custName,custPass,cBalance);
+		   LogThis.LogIt("info" , c.getfName()+"  customer Added");
 		   System.out.println("Account Request Send!");
-		  
-		   
-		   MeanuSystem.whichMenu();
+	       MeanuSystem.whichMenu();
 			
 		}
-       public static void jointAccount() {//need to work
+       public static void jointAccount() {
     	   System.out.println("Enter a new  customer first name !");
 		   String custfiName=sc.nextLine();
 		   System.out.println("Enter a new customer last name !");
@@ -129,15 +145,16 @@ public class MeanuSystem {
 		   int cId=Integer.parseInt(sc.nextLine());
 		   System.out.println("Balance  !");
 		   double cBalance=Double.parseDouble(sc.nextLine());
-		   System.out.println("New customer accountNumber!");
-		   int cAccount=Integer.parseInt(sc.nextLine());
-		   System.out.println("Enter your account number that you will be making joint");
-			int userChoice = sc.nextInt();
-			CustomerAccount a=BankRecord.findByAccount(userChoice);
+		   
+		   System.out.println("Enter your account name that you will be making joint");
+			String userChoice = sc.nextLine();
+			CustomerAccount a=BankRecord.findByName(userChoice);
 			ViewCustomer view=new ViewCustomer();
 			view.viewCustomerDetails(a);
-			 CustomerAccount c = new CustomerAccount(custfiName,custlaName,custName,custPass,cBalance,cAccount);
-			  //LogThis.LogIt("info" ,c.getAccountNumber()+"Added");
+			 CustomerAccount c = new CustomerAccount(custfiName,custlaName,custName,custPass,cBalance);
+			  LogThis.LogIt("info" ,c.getfName()+" Added");
+			  System.out.println("Account Request Send!");
+			  MeanuSystem.whichMenu();
        }
      
        
@@ -173,7 +190,8 @@ public class MeanuSystem {
 		whichFunction();
 		break;
 		case "employee":
-			whichMenu();
+			viewCustomerInfo();
+			//whichMenu();
 			break;
 		case "admin":
 			deletCustomer();
@@ -189,11 +207,10 @@ public class MeanuSystem {
 		}
       
 		private static void whichFunction() {
-			//System.out.println(CustomerAccount.viewBalance());
-			//CustomerAccount c = new CustomerAccount();
+			
 			ViewCustomer view = new ViewCustomer();
 			view.viewCustomerDetails(c);
-           // System.out.println("balance"+c.getBalance());
+           
 			System.out.println("What function wan to see?" 
 			        + "\n [d] Deposit"
 			        + "\n [w] Withdraw"

@@ -28,9 +28,9 @@ public class CustomerAccountTest {
 	@Test
 	public void depositTesting() {
 		CustomerAccount acc=new CustomerAccount();
-		acc.setBalance(200);
+		acc.setBalance(500);
 		int value=(int)acc.getBalance();
-		assertEquals(200,value);
+		assertEquals(500,value);
 		
 		}
 	

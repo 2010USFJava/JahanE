@@ -35,7 +35,7 @@ public class CustomerAccount implements Serializable  {
 		BankRecord.customerList.add(this);
 		//FileStuff.writeCustomerFile(BankRecord.customerList);
 	}
-	public CustomerAccount(String fName, String lName,String userName, String passWord, double balance,int accountNumber ) {
+	public CustomerAccount(String fName, String lName,String userName, String passWord, double balance ) {
 		super();
 		this.fName = fName;
 		this.lName = lName;
@@ -44,7 +44,7 @@ public class CustomerAccount implements Serializable  {
 		this.passWord = passWord;
 		//this.custId=custId;
 		this.balance = balance;
-		this.accountNumber=accountNumber;
+		//this.accountNumber=accountNumber;
 		
 		BankRecord.customerList.add(this);
 		FileStuff.writeCustomerFile(BankRecord.customerList);
