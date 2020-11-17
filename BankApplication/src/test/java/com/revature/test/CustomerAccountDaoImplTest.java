@@ -3,22 +3,19 @@ package com.revature.test;
 import static org.junit.Assert.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.revature.bean.BankAccount;
 import com.revature.bean.CustomerAccount;
-import com.revature.dao.BankAccountDao;
 import com.revature.dao.CustomerAccountDao;
 import com.revature.daoImpl.CustomerDaoImpl;
 import com.revature.util.LogThis;
 
-public class BankAccountDaoImpl {
+public class CustomerAccountDaoImplTest {
 
-    @BeforeClass
+	@BeforeClass
 	public static void initialSetUp(){
 		System.out.println("Run before test loaded");
 	}
@@ -31,4 +28,23 @@ public class BankAccountDaoImpl {
 		LogThis.LogIt("info", "logger working!");
 	}
 
+	@Test
+	public void deleteCustomer() throws SQLException {
+		CustomerAccountDao cdi = new CustomerDaoImpl();
+		cdi.deleteCustBankAccount(7);
+		CustomerAccount c = new CustomerAccount();
+		String r = c.toString();
+		assertEquals(r, null);
+	}
+	@Test
+	public void findUserNme() throws SQLException {
+		CustomerAccountDao cdi = new CustomerDaoImpl();
+		cdi.findByUserName("esrat");
+		CustomerAccount c = new CustomerAccount();
+		String r = c.toString();
+		assertEquals(r, null);
+	}
+	
+	
+	
 }
