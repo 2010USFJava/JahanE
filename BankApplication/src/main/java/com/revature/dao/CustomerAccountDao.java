@@ -30,6 +30,8 @@ public interface CustomerAccountDao {
 	//update
 	public void updateCustomerLastName(String lastName, int user_id) throws SQLException;
 	
+	public int countAllCustomer() throws SQLException;
+	
 	
 	
 	

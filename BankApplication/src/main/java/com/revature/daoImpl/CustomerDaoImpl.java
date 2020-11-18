@@ -131,5 +131,19 @@ public class CustomerDaoImpl implements CustomerAccountDao{
 	     System.out.println("updated successfully ");
 	   
 	}
+	@Override
+	public int countAllCustomer() throws SQLException {
+		Connection conn = cf.getConnection(); 
+		String sql = "select userfunction()";
+	    PreparedStatement ps = conn.prepareStatement(sql);
+	    ResultSet rs=ps.executeQuery();
+		int count=0;
+		while(rs.next()){
+		 count=(rs.getInt(1));
+		}
+		return count;
+		
+		
+	}
 
 }

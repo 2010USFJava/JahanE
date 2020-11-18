@@ -132,6 +132,7 @@ public class MainMenu {
 		System.out.println("\t[c]Create Customer Account ");
 	    System.out.println("\t[u]Update Information");
 		System.out.println("\t[d]Delete Customer Account");
+		System.out.println("\t[a]All count Customers");
 		System.out.println("\t[l]LogOut");
 	    System.out.println("=======================================");
 		
@@ -177,6 +178,17 @@ public class MainMenu {
 				AdminProfile.delectCustomerAccout();
 				adminMenu();
 				
+				break;
+				
+			case"a":
+			try {
+				System.out.println("Count all customers = " + ca.countAllCustomer());
+				System.out.println("-----------------------------------------");
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
+			adminMenu();
 				break;
 			case "l":
 			
